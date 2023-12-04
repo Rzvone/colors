@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 'use client'
 
 import React, { Fragment, useCallback, useEffect, useRef, useState } from 'react'
@@ -14,6 +15,7 @@ import classes from './index.module.scss'
 type FormData = {
   email: string
   name: string
+  phoneNumber: string
   password: string
   passwordConfirm: string
 }
@@ -59,6 +61,7 @@ const AccountForm: React.FC = () => {
           reset({
             email: json.doc.email,
             name: json.doc.name,
+            phoneNumber: json.doc.phoneNumber,
             password: '',
             passwordConfirm: '',
           })
@@ -84,6 +87,7 @@ const AccountForm: React.FC = () => {
       reset({
         email: user.email,
         name: user.name,
+        phoneNumber: user.phoneNumber,
         password: '',
         passwordConfirm: '',
       })
@@ -115,6 +119,7 @@ const AccountForm: React.FC = () => {
             type="email"
           />
           <Input name="name" label="Name" register={register} error={errors.name} />
+          <Input name="phoneNumber" label="Phone Number" register={register} error={errors.phoneNumber} />
         </Fragment>
       ) : (
         <Fragment>

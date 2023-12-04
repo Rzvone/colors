@@ -13,7 +13,8 @@ type ResetPassword = (args: {
 
 type ForgotPassword = (args: { email: string }) => Promise<void> // eslint-disable-line no-unused-vars
 
-type Create = (args: { email: string; password: string; passwordConfirm: string }) => Promise<void> // eslint-disable-line no-unused-vars
+// eslint-disable-next-line prettier/prettier
+type Create = (args: { email: string; password: string; passwordConfirm: string; phoneNumber: string }) => Promise<void> // eslint-disable-line no-unused-vars
 
 type Login = (args: { email: string; password: string }) => Promise<User> // eslint-disable-line no-unused-vars
 
@@ -21,7 +22,9 @@ type Logout = () => Promise<void>
 
 type AuthContext = {
   user?: User | null
+  phoneNumber?: string
   setUser: (user: User | null) => void // eslint-disable-line no-unused-vars
+  setPhoneNumber: (phoneNumber: string | null) => void // eslint-disable-line no-unused-vars
   logout: Logout
   login: Login
   create: Create
@@ -34,7 +37,7 @@ const Context = createContext({} as AuthContext)
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>()
-
+  const [phoneNumber, setPhoneNumber] = useState<string | null>(null)
   // used to track the single event of logging in or logging out
   // useful for `useEffect` hooks that should only run once
   const [status, setStatus] = useState<undefined | 'loggedOut' | 'loggedIn'>()
@@ -50,6 +53,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           email: args.email,
           password: args.password,
           passwordConfirm: args.passwordConfirm,
+          phoneNumber: args.phoneNumber,
         }),
       })
 
@@ -57,6 +61,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         const { data, errors } = await res.json()
         if (errors) throw new Error(errors[0].message)
         setUser(data?.loginUser?.user)
+        setPhoneNumber(args.phoneNumber)
         setStatus('loggedIn')
       } else {
         throw new Error('Invalid login')
@@ -199,7 +204,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     <Context.Provider
       value={{
         user,
+        phoneNumber,
         setUser,
+        setPhoneNumber,
         login,
         logout,
         create,

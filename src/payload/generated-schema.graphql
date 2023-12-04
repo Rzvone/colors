@@ -4601,6 +4601,7 @@ type Order {
 type User {
   id: String
   name: String
+  phoneNumber: String
   roles: [User_roles!]
   purchases: [Product!]
   stripeCustomerID: String
@@ -5933,6 +5934,7 @@ type Users {
 
 input User_where {
   name: User_name_operator
+  phoneNumber: User_phoneNumber_operator
   roles: User_roles_operator
   purchases: User_purchases_operator
   stripeCustomerID: User_stripeCustomerID_operator
@@ -5949,6 +5951,17 @@ input User_where {
 }
 
 input User_name_operator {
+  equals: String
+  not_equals: String
+  like: String
+  contains: String
+  in: [String]
+  not_in: [String]
+  all: [String]
+  exists: Boolean
+}
+
+input User_phoneNumber_operator {
   equals: String
   not_equals: String
   like: String
@@ -6074,6 +6087,7 @@ input User_id_operator {
 
 input User_where_and {
   name: User_name_operator
+  phoneNumber: User_phoneNumber_operator
   roles: User_roles_operator
   purchases: User_purchases_operator
   stripeCustomerID: User_stripeCustomerID_operator
@@ -6089,6 +6103,7 @@ input User_where_and {
 
 input User_where_or {
   name: User_name_operator
+  phoneNumber: User_phoneNumber_operator
   roles: User_roles_operator
   purchases: User_purchases_operator
   stripeCustomerID: User_stripeCustomerID_operator
@@ -6113,6 +6128,7 @@ type usersDocAccess {
 
 type UsersDocAccessFields {
   name: UsersDocAccessFields_name
+  phoneNumber: UsersDocAccessFields_phoneNumber
   roles: UsersDocAccessFields_roles
   purchases: UsersDocAccessFields_purchases
   stripeCustomerID: UsersDocAccessFields_stripeCustomerID
@@ -6144,6 +6160,29 @@ type UsersDocAccessFields_name_Update {
 }
 
 type UsersDocAccessFields_name_Delete {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_phoneNumber {
+  create: UsersDocAccessFields_phoneNumber_Create
+  read: UsersDocAccessFields_phoneNumber_Read
+  update: UsersDocAccessFields_phoneNumber_Update
+  delete: UsersDocAccessFields_phoneNumber_Delete
+}
+
+type UsersDocAccessFields_phoneNumber_Create {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_phoneNumber_Read {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_phoneNumber_Update {
+  permission: Boolean!
+}
+
+type UsersDocAccessFields_phoneNumber_Delete {
   permission: Boolean!
 }
 
@@ -10260,6 +10299,7 @@ type usersAccess {
 
 type UsersFields {
   name: UsersFields_name
+  phoneNumber: UsersFields_phoneNumber
   roles: UsersFields_roles
   purchases: UsersFields_purchases
   stripeCustomerID: UsersFields_stripeCustomerID
@@ -10291,6 +10331,29 @@ type UsersFields_name_Update {
 }
 
 type UsersFields_name_Delete {
+  permission: Boolean!
+}
+
+type UsersFields_phoneNumber {
+  create: UsersFields_phoneNumber_Create
+  read: UsersFields_phoneNumber_Read
+  update: UsersFields_phoneNumber_Update
+  delete: UsersFields_phoneNumber_Delete
+}
+
+type UsersFields_phoneNumber_Create {
+  permission: Boolean!
+}
+
+type UsersFields_phoneNumber_Read {
+  permission: Boolean!
+}
+
+type UsersFields_phoneNumber_Update {
+  permission: Boolean!
+}
+
+type UsersFields_phoneNumber_Delete {
   permission: Boolean!
 }
 
@@ -12002,6 +12065,7 @@ input mutationCategoryUpdate_BreadcrumbsInput {
 
 input mutationUserInput {
   name: String
+  phoneNumber: String
   roles: [User_roles_MutationInput]
   purchases: [String]
   stripeCustomerID: String
@@ -12036,6 +12100,7 @@ input mutationUser_Cart_ItemsInput {
 
 input mutationUserUpdateInput {
   name: String
+  phoneNumber: String
   roles: [UserUpdate_roles_MutationInput]
   purchases: [String]
   stripeCustomerID: String

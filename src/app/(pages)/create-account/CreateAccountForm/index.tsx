@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 'use client'
 
 import React, { useCallback, useRef, useState } from 'react'
@@ -14,6 +15,7 @@ import classes from './index.module.scss'
 
 type FormData = {
   name: string
+  phoneNumber: string
   email: string
   password: string
   passwordConfirm: string
@@ -38,7 +40,9 @@ const CreateAccountForm: React.FC = () => {
   password.current = watch('password', '')
 
   const onSubmit = useCallback(
+    
     async (data: FormData) => {
+      console.log(data)
       const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/users`, {
         method: 'POST',
         body: JSON.stringify(data),
@@ -96,6 +100,14 @@ const CreateAccountForm: React.FC = () => {
         register={register}
         error={errors.name}
         type="text"
+      />
+      <Input
+        name="phoneNumber"
+        label="Phone Number"
+        required
+        register={register}
+        error={errors.phoneNumber}
+        type="text" 
       />
       <Input
         name="password"

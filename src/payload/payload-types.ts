@@ -404,6 +404,7 @@ export interface Order {
 export interface User {
   id: string;
   name?: string;
+  phoneNumber?: string;
   roles?: ('admin' | 'customer')[];
   purchases?: string[] | Product[];
   stripeCustomerID?: string;
