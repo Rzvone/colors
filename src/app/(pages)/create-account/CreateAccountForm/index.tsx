@@ -79,11 +79,11 @@ const CreateAccountForm: React.FC = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={classes.form}>
-      <p>
+      {/* <p>
         {`This is where new customers can signup and create a new account. To manage all users, `}
         <Link href="/admin/collections/users">login to the admin dashboard</Link>
         {'.'}
-      </p>
+      </p> */}
       <Message error={error} className={classes.message} />
       <Input
         name="email"
@@ -107,7 +107,7 @@ const CreateAccountForm: React.FC = () => {
         required
         register={register}
         error={errors.phoneNumber}
-        type="text" 
+        type="text"
       />
       <Input
         name="password"
