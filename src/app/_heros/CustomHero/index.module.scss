@@ -14,13 +14,13 @@
 .heroWrapper {
   background-color: var(--color-dark-50);
   width: 100%;
-  max-width: 1560px;
+  max-width: 1760px;
   max-height: 884px;
   display: flex;
   align-items: center;
 
   background-size: cover;
-  background-position: revert;
+  background-position: center;
   background-repeat: no-repeat;
 
   @include small-break {
