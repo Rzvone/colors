@@ -19,7 +19,7 @@ export default async function Account() {
       'You must be logged in to access your account.',
     )}&redirect=${encodeURIComponent('/account')}`,
   })
-
+  console.log(user.notes)
   return (
     <Fragment>
       <Gutter>

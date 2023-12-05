@@ -31,6 +31,7 @@ export default async function Page({ params: { slug = 'home' } }) {
   let page: Page | null = null
   let categories: Category[] | null = null
 
+
   try {
     page = await fetchDoc<Page>({
       collection: 'pages',
