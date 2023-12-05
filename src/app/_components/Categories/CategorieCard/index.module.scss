@@ -3,6 +3,8 @@
 .card {
   position: relative;
   background-color: var(--color-dark-50);
+  font-weight: bold;
+  text-decoration: none;
   min-height: 360px;
   width: 100%;
   display: flex;
@@ -16,10 +18,13 @@
   background-repeat: no-repeat;
 }
 
+.card:hover {
+  color: darkgreen;
+}
 .title {
   border-radius: 10px;
   padding: 16px;
   width: 100%;
   text-align: center;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.7);
 }
