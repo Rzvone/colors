@@ -51,6 +51,11 @@ const Users: CollectionConfig = {
       type: 'text',
     },
     {
+      name: 'notes',
+      label: 'Notes',
+      type: 'textarea',
+    },
+    {
       name: 'roles',
       type: 'select',
       hasMany: true,

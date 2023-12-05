@@ -405,6 +405,7 @@ export interface User {
   id: string;
   name?: string;
   phoneNumber?: string;
+  notes?: string;
   roles?: ('admin' | 'customer')[];
   purchases?: string[] | Product[];
   stripeCustomerID?: string;
