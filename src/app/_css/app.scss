@@ -3,6 +3,28 @@
 @use './type.scss' as *;
 @import "./theme.scss";
 
+$scrollbar-width: 8px;
+$scrollbar-color: var(--color-dark-500);
+$scrollbar-thumb-color: var(--color-dark-500);
+$scrollbar-track-color: white;
+$scrollbar-thumb-hover-color: red;
+
+::-webkit-scrollbar {
+  width: $scrollbar-width;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $scrollbar-track-color;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $scrollbar-color;
+  border-radius: 4px;
+  &:hover {
+    background-color: $scrollbar-thumb-hover-color;
+  }
+}
+
 :root {
   --base: 24px;
   --font-body: 'Jost', sans-serif;
@@ -113,7 +135,7 @@ ol {
 
 a {
   color: var(--color-dark-500);
-
+  text-decoration: none;
   &:focus {
     opacity: .8;
     outline: none;
