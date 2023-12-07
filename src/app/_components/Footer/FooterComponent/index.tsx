@@ -10,7 +10,8 @@ import { Footer, Media } from '../../../../payload/payload-types';
 import { Button } from '../../Button';
 
 const FooterComponent = ({ footer }: { footer: Footer }) => {
-  const pathname  = usePathname();
+  
+  const pathname = usePathname();
   const navItems = footer?.navItems || [];
 
   return (
