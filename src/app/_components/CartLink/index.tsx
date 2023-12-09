@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { useCart } from '../../_providers/Cart'
 
 import classes from './index.module.scss'
+import Image from 'next/image'
 
 export const CartLink: React.FC<{
   className?: string

@@ -80,7 +80,7 @@ export const CheckoutForm: React.FC<{}> = () => {
       <div className={classes.actions}>
         <Button label="Back to cart" href="/cart" appearance="secondary" />
         <Button
-          label={isLoading ? 'Loading...' : 'Checkout'}
+          label={isLoading ? 'Loading...' : 'Appointment'}
           type="submit"
           appearance="primary"
           disabled={!stripe || isLoading}

@@ -11,15 +11,19 @@ import { noHeaderFooterUrls } from '../../../constants'
 import { usePathname } from 'next/navigation'
 
 const HeaderComponent = ({ header }: { header: Header }) => {
-  const  pathname  = usePathname()
+  const pathname = usePathname()
   return (
-    <nav className={[classes.header, noHeaderFooterUrls.includes(pathname) && classes.hide].filter(Boolean).join('')}>
-        <Gutter className={classes.wrap}>
-            <Link href="/">
-                <Image src="/logo-black.png" alt="logo" width={170} height={50} />
-            </Link>
-            <HeaderNav header={header} />
-        </Gutter>
+    <nav
+      className={[classes.header, noHeaderFooterUrls.includes(pathname) && classes.hide]
+        .filter(Boolean)
+        .join('')}
+    >
+      <Gutter className={classes.wrap}>
+        <Link href="/">
+          <Image src="/logo-black.png" alt="logo" width={170} height={50} />
+        </Link>
+        <HeaderNav header={header} />
+      </Gutter>
     </nav>
   )
 }
