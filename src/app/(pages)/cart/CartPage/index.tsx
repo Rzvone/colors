@@ -5,7 +5,6 @@ import Link from 'next/link'
 
 import { Page, Settings } from '../../../../payload/payload-types'
 import { Button } from '../../../_components/Button'
-import { HR } from '../../../_components/HR'
 import { LoadingShimmer } from '../../../_components/LoadingShimmer'
 import { useAuth } from '../../../_providers/Auth'
 import { useCart } from '../../../_providers/Cart'
@@ -23,10 +22,6 @@ export const CartPage: React.FC<{
   const { user } = useAuth()
 
   const { cart, cartIsEmpty, addItemToCart, cartTotal, hasInitializedCart } = useCart()
-
-  const removeItemFromCart = () => {
-    console.log('removeItemFromCart')
-  }
 
   return (
     <Fragment>
@@ -91,7 +86,7 @@ export const CartPage: React.FC<{
 
               <div className={classes.summary}>
                 <div className={classes.row}>
-                  <h6 className={classes.cartTotal}>Summary</h6>
+                  <h6 className={classes.cartTotal}>Sumar</h6>
                 </div>
                 <div className={classes.row}>
                   <p className={classes.cartTotal}>Total</p>
@@ -101,7 +96,7 @@ export const CartPage: React.FC<{
                   className={classes.checkoutButton}
                   href={user ? '/checkout' : '/login?redirect=%2Fcheckout'} // aici o sa fie /fa-ti-programare
                   // href={`whatsapp://send?phone=+40729590667&text=Buna ziua as dori sa fac o programare pentru la dumneavoastra la salon.`}
-                  label={user ? 'Book Appointment' : 'Login for appointment'} // aici o sa fie Fa-ti programare
+                  label={user ? 'Catre Programare' : 'Login Pentru Programare'} // aici o sa fie Fa-ti programare
                   appearance="primary"
                 />
               </div>

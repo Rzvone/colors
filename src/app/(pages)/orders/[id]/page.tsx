@@ -14,6 +14,7 @@ import { getMeUser } from '../../../_utilities/getMeUser'
 import { mergeOpenGraph } from '../../../_utilities/mergeOpenGraph'
 
 import classes from './index.module.scss'
+import { product1 } from '../../../../payload/seed/product-1'
 
 export default async function Order({ params: { id } }) {
   const { token } = await getMeUser({
@@ -48,28 +49,30 @@ export default async function Order({ params: { id } }) {
   return (
     <Gutter className={classes.orders}>
       <h1>
-        {`Order`}
-        <span className={classes.id}>{`${order.id}`}</span>
+        {`Programarea`}
+        <span className={classes.id}></span>
+        {/* {`${order.id}`} */}
       </h1>
       <div className={classes.itemMeta}>
-        <p>{`ID: ${order.id}`}</p>
-        <p>{`Payment Intent: ${order.stripePaymentIntentID}`}</p>
-        <p>{`Ordered On: ${formatDateTime(order.createdAt)}`}</p>
+        <p></p>
+        {/* {`ID: ${order.id}`} */}
+        <p></p>
+        {/* {`Order ${order.id}`} */}
+        <p>{`Programare la data de: ${formatDateTime(order.createdAt)}`}</p>
         <p className={classes.total}>
           {'Total: '}
           {new Intl.NumberFormat('en-US', {
             style: 'currency',
-            currency: 'usd',
+            currency: 'Ron',
           }).format(order.total / 100)}
         </p>
       </div>
       <HR />
       <div className={classes.order}>
-        <h4 className={classes.orderItems}>Items</h4>
+        <h4 className={classes.orderItems}>Serviciul</h4>
         {order.items?.map((item, index) => {
           if (typeof item.product === 'object') {
             const {
-              quantity,
               product,
               product: { id, title, meta, stripeProductID },
             } = item
@@ -109,8 +112,8 @@ export default async function Order({ params: { id } }) {
                         {title}
                       </Link>
                     </h5>
-                    <p>{`Quantity: ${quantity}`}</p>
-                    <Price product={product} button={false} quantity={quantity} />
+                    <p></p>
+                    <Price product={product} button={false} />
                   </div>
                 </div>
                 {!isLast && <HR />}
@@ -123,8 +126,8 @@ export default async function Order({ params: { id } }) {
       </div>
       <HR />
       <div className={classes.actions}>
-        <Button href="/orders" appearance="primary" label="See all orders" />
-        <Button href="/account" appearance="secondary" label="Go to account" />
+        <Button href="/orders" appearance="primary" label="Vezi toate programarile" />
+        <Button href="/account" appearance="secondary" label="Inapoi la Cont" />
       </div>
     </Gutter>
   )

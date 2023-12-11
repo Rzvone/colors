@@ -33,7 +33,7 @@ export default async function Account() {
             type: 'h1',
             children: [
               {
-                text: 'Account',
+                text: 'Contul meu',
               },
             ],
           },
@@ -42,8 +42,8 @@ export default async function Account() {
       <Gutter className={classes.account}>
         <AccountForm />
         <HR />
-        <h2>Purchased Products</h2>
-        <p>
+        <h2>Istoric Servicii</h2>
+        <p className={classes.paragraph}>
           These are the products you have purchased over time. This provides a way for you to access
           digital assets or gated content behind a paywall. This is different from your orders,
           which are directly associated with individual payments.
@@ -66,12 +66,12 @@ export default async function Account() {
               })}
             </ul>
           ) : (
-            <div className={classes.noPurchases}>You have no purchases.</div>
+            <div className={classes.noPurchases}>Nu ai beneficiat de nici un serviciu inca.</div>
           )}
         </div>
         <HR />
-        <h2>Orders</h2>
-        <p>
+        <h2>Programari anterioare</h2>
+        <p className={classes.paragraph}>
           These are the orders you have placed over time. Each order is associated with an payment
           intent. As you order products, they will appear in your "purchased products" list.
         </p>
@@ -79,7 +79,7 @@ export default async function Account() {
           className={classes.ordersButton}
           href="/orders"
           appearance="primary"
-          label="View orders"
+          label="Vezi toate programarile"
         />
         <HR />
         <Button href="/logout" appearance="secondary" label="Log out" />

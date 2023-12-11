@@ -59,7 +59,7 @@ export const CheckoutForm: React.FC<{}> = () => {
 
         // Open WhatsApp with a pre-filled message
         const phoneNumber = '+40729590667' // replace with the phone number you want to send the message to
-        const message = `Order #${doc.id} has been placed.`
+        const message = `Salut, am nevoie de o programare pentru`
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
         window.open(whatsappUrl)
 
@@ -78,9 +78,9 @@ export const CheckoutForm: React.FC<{}> = () => {
       {error && <Message error={error} />}
       {/* <PaymentElement /> */}
       <div className={classes.actions}>
-        <Button label="Back to cart" href="/cart" appearance="secondary" />
+        <Button label="Inapoi la Cos" href="/cart" appearance="secondary" />
         <Button
-          label={isLoading ? 'Loading...' : 'Appointment'}
+          label={isLoading ? 'Loading...' : 'Programare'}
           type="submit"
           appearance="primary"
           disabled={!stripe || isLoading}

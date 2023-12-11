@@ -94,7 +94,7 @@ export const CheckoutPage: React.FC<{
       {!cartIsEmpty && (
         <div className={classes.items}>
           <div className={classes.header}>
-            <p>Products</p>
+            <p>Produse</p>
             <p></p>
             <p className={classes.subtotal}>Subtotal</p>
           </div>
@@ -123,7 +123,7 @@ export const CheckoutPage: React.FC<{
               return null
             })}
             <div className={classes.orderTotal}>
-              <p>Order Total</p>
+              <p>Total de plata</p>
               <p></p>
               <p>{cartTotal.formatted}</p>
             </div>
@@ -138,12 +138,12 @@ export const CheckoutPage: React.FC<{
       {!clientSecret && error && (
         <div className={classes.error}>
           <p>{`Error: ${error}`}</p>
-          <Button label="Back to cart" href="/cart" appearance="secondary" />
+          <Button label="Inapoi la cos" href="/cart" appearance="secondary" />
         </div>
       )}
       {clientSecret && (
         <Fragment>
-          <h3 className={classes.payment}>Payment Details</h3>
+          {/* <h3 className={classes.payment}>Payment Details with stripe for shop</h3> */}
           {error && <p>{`Error: ${error}`}</p>}
           <Elements
             stripe={stripe}

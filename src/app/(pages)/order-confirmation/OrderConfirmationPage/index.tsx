@@ -39,15 +39,13 @@ export const OrderConfirmationPage: React.FC<{}> = () => {
         </Fragment>
       ) : (
         <Fragment>
-          <h1>Thank you for your order!</h1>
-          <p>
-            {`Your order has been confirmed. You will receive an email confirmation shortly. Your order ID is ${orderID}.`}
-          </p>
+          <h3 className={classes.header3}>Multumim pentru suport!</h3>
+          <p className={classes.paragraph}>{`Multumim pentru alegerea facuta!`}</p>
           <div className={classes.actions}>
-            <Button href={`/orders/${orderID}`} label="View order" appearance="primary" />
+            <Button href={`/orders/${orderID}`} label="Vezi alegerea" appearance="primary" />
             <Button
               href={`${process.env.NEXT_PUBLIC_SERVER_URL}/orders`}
-              label="View all orders"
+              label="Vezi toate alegerile"
               appearance="secondary"
             />
           </div>
