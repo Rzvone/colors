@@ -68,7 +68,7 @@ export default async function Order({ params: { id } }) {
       </div>
       <HR />
       <div className={classes.order}>
-        <h4 className={classes.orderItems}>Serviciul</h4>
+        <h4 className={classes.itemTitle}>Serviciul</h4>
         {order.items?.map((item, index) => {
           if (typeof item.product === 'object') {
             const {
@@ -112,7 +112,7 @@ export default async function Order({ params: { id } }) {
                       </Link>
                     </h5>
                     <p></p>
-                    <Price product={product} button={false} />
+                    {/* <Price product={product} button={false} /> */}
                   </div>
                 </div>
                 {!isLast && <HR />}
