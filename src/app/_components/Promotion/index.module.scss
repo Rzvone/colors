@@ -2,7 +2,7 @@
 
 .promotion {
   display: grid;
-  grid-template-columns: 50% 1fr;
+  grid-template-columns: 100% 1fr;
   gap: 30px;
   margin-bottom: 30px;
 
@@ -49,10 +49,11 @@
 
 .statBox {
   border-radius: 10px;
-  border: 1px solid var(--color-dark-60);
+  border: 1px solid var(--color-base-600);
   padding: 16px;
   min-width: 100px;
   width: 100%;
+  background-color: var(--color-base-150);
   text-align: center;
 
   h4 {

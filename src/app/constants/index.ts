@@ -24,18 +24,18 @@ export const inclusions = [
   
   export const profileNavItems = [
     {
-      title: 'Personal Information',
+      title: 'Informatii Personale',
       url: '/account',
       icon: '/assets/icons/user.svg',
     },
     {
-      title: 'My Purchases',
+      title: 'Serviciile Mele',
       url: '/account/purchases',
       icon: '/assets/icons/purchases.svg',
     },
     {
-      title: 'My Orders',
-      url: '/account/orders',
+      title: 'Programarile Mele',
+      url: '/orders',
       icon: '/assets/icons/orders.svg',
     },
     {

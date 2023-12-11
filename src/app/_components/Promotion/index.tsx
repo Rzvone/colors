@@ -1,10 +1,8 @@
-/* eslint-disable prettier/prettier */
 'use client'
 import { useEffect, useState } from 'react'
 import classes from './index.module.scss'
 
 const Promotion = () => {
-
   const [time, setTime] = useState({
     days: 0,
     hours: 0,
@@ -40,11 +38,10 @@ const Promotion = () => {
     }
   }, [])
 
-
   return (
     <section className={classes.promotion}>
       <div className={classes.textBox}>
-        <h3 className={classes.title}>Deals of the Month</h3>
+        <h3 className={classes.title}>Ofertele lunii</h3>
         <p>
           Get ready for a shopping experience like never before with our Deals of the Month! Every
           purchase comes with exclusive perks and offers, making this month a celebration of savvy
@@ -52,10 +49,10 @@ const Promotion = () => {
         </p>
 
         <ul className={classes.stats}>
-          <StatBox label="Days" value={time.days} />
-          <StatBox label="Hours" value={time.hours} />
-          <StatBox label="Minutes" value={time.minutes} />
-          <StatBox label="Seconds" value={time.seconds} />
+          <StatBox label="Zile" value={time.days} />
+          <StatBox label="Ore" value={time.hours} />
+          <StatBox label="Minute" value={time.minutes} />
+          <StatBox label="Secunde" value={time.seconds} />
         </ul>
       </div>
     </section>

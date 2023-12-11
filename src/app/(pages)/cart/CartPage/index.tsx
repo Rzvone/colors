@@ -34,7 +34,7 @@ export const CartPage: React.FC<{
         <Fragment>
           {cartIsEmpty ? (
             <div className={classes.empty}>
-              Your cart is empty.
+              Cosul este gol.
               {typeof productsPage === 'object' && productsPage?.slug && (
                 <Fragment>
                   {' '}
@@ -55,7 +55,7 @@ export const CartPage: React.FC<{
               <div>
                 {/* cart list header */}
                 <div className={classes.header}>
-                  <p>Products</p>
+                  <p>Servicii</p>
                 </div>
                 {/* cart list item */}
                 <ul className={classes.itemsList}>

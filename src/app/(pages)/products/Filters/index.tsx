@@ -27,7 +27,7 @@ const Filters = ({ categories }: { categories: Category[]}) => {
   return (
     <div className={classes.filters}>
       <div>
-        <h6 className={classes.title}>Service Categories</h6>
+        <h6 className={classes.title}>Categorii de Servicii</h6>
         <div className={classes.categories}>
           {categories.map((category) => {
             const isSelected = categoryFilters.includes(category.id)
@@ -44,17 +44,17 @@ const Filters = ({ categories }: { categories: Category[]}) => {
           })}
         </div>
         <HR className={classes.hr}/>
-        <h6 className={classes.title}>Sort By</h6>
+        <h6 className={classes.title}>Sorteaza Dupa</h6>
         <div className={classes.categories}>
           <RadioButton 
-            label="Latest"
+            label="Modele Noi"
             value="-createdAt"
             isSelected={sort === '-createdAt'}
             onRadioChange={handleSort}
             groupName="sort"
           />
           <RadioButton 
-          label="Oldest"
+          label="Modele Vechi"
           value="createdAt"
           isSelected={sort === 'createdAt'}
           onRadioChange={handleSort}

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 'use client'
 
 import React, { Fragment, useCallback, useEffect, useRef, useState } from 'react'
@@ -15,7 +14,6 @@ import classes from './index.module.scss'
 type FormData = {
   email: string
   name: string
-  phoneNumber: string
   password: string
   passwordConfirm: string
 }
@@ -55,18 +53,17 @@ const AccountForm: React.FC = () => {
         if (response.ok) {
           const json = await response.json()
           setUser(json.doc)
-          setSuccess('Successfully updated account.')
+          setSuccess('Cont actualizat cu succes.')
           setError('')
           setChangePassword(false)
           reset({
             email: json.doc.email,
             name: json.doc.name,
-            phoneNumber: json.doc.phoneNumber,
             password: '',
             passwordConfirm: '',
           })
         } else {
-          setError('There was a problem updating your account.')
+          setError('A apărut o problemă la actualizarea contului dvs.')
         }
       }
     },
@@ -77,7 +74,7 @@ const AccountForm: React.FC = () => {
     if (user === null) {
       router.push(
         `/login?error=${encodeURIComponent(
-          'You must be logged in to view this page.',
+          'Trebuie să fii autentificat pentru a vizualiza această pagină.',
         )}&redirect=${encodeURIComponent('/account')}`,
       )
     }
@@ -87,7 +84,6 @@ const AccountForm: React.FC = () => {
       reset({
         email: user.email,
         name: user.name,
-        phoneNumber: user.phoneNumber,
         password: '',
         passwordConfirm: '',
       })
@@ -99,45 +95,45 @@ const AccountForm: React.FC = () => {
       <Message error={error} success={success} className={classes.message} />
       {!changePassword ? (
         <Fragment>
-          <p>
-            {'Change your account details below, or '}
-            <button
-              type="button"
-              className={classes.changePassword}
-              onClick={() => setChangePassword(!changePassword)}
-            >
-              click here
-            </button>
-            {' to change your password.'}
-          </p>
           <Input
             name="email"
-            label="Email Address"
+            label="Adresa de Email"
             required
             register={register}
             error={errors.email}
             type="email"
           />
-          <Input name="name" label="Name" register={register} error={errors.name} />
-          <Input name="phoneNumber" label="Phone Number" register={register} error={errors.phoneNumber} />
-        </Fragment>
-      ) : (
-        <Fragment>
+          <Input name="name" label="Nume Complet" register={register} error={errors.name} />
+
           <p>
-            {'Change your password below, or '}
+            {'Modificati detalii contului dvs. sau '}
             <button
               type="button"
               className={classes.changePassword}
               onClick={() => setChangePassword(!changePassword)}
             >
-              cancel
+              click aici
+            </button>
+            {' sa va schimbati parola.'}
+          </p>
+        </Fragment>
+      ) : (
+        <Fragment>
+          <p>
+            {'Schimbati parola contului dvs. sau '}
+            <button
+              type="button"
+              className={classes.changePassword}
+              onClick={() => setChangePassword(!changePassword)}
+            >
+              anulati
             </button>
             .
           </p>
           <Input
             name="password"
             type="password"
-            label="Password"
+            label="Parola"
             required
             register={register}
             error={errors.password}
@@ -145,17 +141,17 @@ const AccountForm: React.FC = () => {
           <Input
             name="passwordConfirm"
             type="password"
-            label="Confirm Password"
+            label="Confirm Parola"
             required
             register={register}
-            validate={value => value === password.current || 'The passwords do not match'}
+            validate={value => value === password.current || 'Parolele nu se potrivesc.'}
             error={errors.passwordConfirm}
           />
         </Fragment>
       )}
       <Button
         type="submit"
-        label={isLoading ? 'Processing' : changePassword ? 'Change Password' : 'Update Account'}
+        label={isLoading ? 'Processing' : changePassword ? 'Schimba Parola' : 'Actualizeaza Cont'}
         disabled={isLoading}
         appearance="primary"
         className={classes.submit}

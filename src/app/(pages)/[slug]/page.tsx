@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
 
-import { Category, Page } from '../../../payload/payload-types'
+import type { Category, Page } from '../../../payload/payload-types'
 import { staticHome } from '../../../payload/seed/home-static'
 import { fetchDoc } from '../../_api/fetchDoc'
 import { fetchDocs } from '../../_api/fetchDocs'
@@ -30,7 +30,6 @@ export default async function Page({ params: { slug = 'home' } }) {
 
   let page: Page | null = null
   let categories: Category[] | null = null
-
 
   try {
     page = await fetchDoc<Page>({
@@ -65,23 +64,20 @@ export default async function Page({ params: { slug = 'home' } }) {
       {slug === 'home' ? (
         <section>
           <Hero {...hero} />
-
           <Gutter className={classes.home}>
-            <Categories categories={categories}/>
+            <Categories categories={categories} />
             <Promotion />
           </Gutter>
         </section>
-      ): (
+      ) : (
         <>
           <Hero {...hero} />
           <Blocks
             blocks={layout}
-            disableTopPadding={!hero || hero?.type === 'none' || hero?.type === 'lowImpact'} />
+            disableTopPadding={!hero || hero?.type === 'none' || hero?.type === 'lowImpact'}
+          />
         </>
       )}
-
-
-
     </React.Fragment>
   )
 }

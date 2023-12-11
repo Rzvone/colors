@@ -1,90 +1,17 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Metadata } from 'next'
-import Link from 'next/link'
 
-import { Button } from '../../_components/Button'
-import { Gutter } from '../../_components/Gutter'
-import { HR } from '../../_components/HR'
-import { RenderParams } from '../../_components/RenderParams'
-import { LowImpactHero } from '../../_heros/LowImpact'
-import { getMeUser } from '../../_utilities/getMeUser'
 import { mergeOpenGraph } from '../../_utilities/mergeOpenGraph'
 import AccountForm from './AccountForm'
 
 import classes from './index.module.scss'
 
 export default async function Account() {
-  const { user } = await getMeUser({
-    nullUserRedirect: `/login?error=${encodeURIComponent(
-      'You must be logged in to access your account.',
-    )}&redirect=${encodeURIComponent('/account')}`,
-  })
-  console.log(user.notes)
   return (
-    <Fragment>
-      <Gutter>
-        <RenderParams className={classes.params} />
-      </Gutter>
-      <LowImpactHero
-        type="lowImpact"
-        media={null}
-        richText={[
-          {
-            type: 'h1',
-            children: [
-              {
-                text: 'Contul meu',
-              },
-            ],
-          },
-        ]}
-      />
-      <Gutter className={classes.account}>
-        <AccountForm />
-        <HR />
-        <h2>Istoric Servicii</h2>
-        <p className={classes.paragraph}>
-          These are the products you have purchased over time. This provides a way for you to access
-          digital assets or gated content behind a paywall. This is different from your orders,
-          which are directly associated with individual payments.
-        </p>
-        <div>
-          {user?.purchases?.length || 0 > 0 ? (
-            <ul className={classes.purchases}>
-              {user?.purchases?.map((purchase, index) => {
-                return (
-                  <li key={index} className={classes.purchase}>
-                    {typeof purchase === 'string' ? (
-                      <p>{purchase}</p>
-                    ) : (
-                      <h4>
-                        <Link href={`/products/${purchase.slug}`}>{purchase.title}</Link>
-                      </h4>
-                    )}
-                  </li>
-                )
-              })}
-            </ul>
-          ) : (
-            <div className={classes.noPurchases}>Nu ai beneficiat de nici un serviciu inca.</div>
-          )}
-        </div>
-        <HR />
-        <h2>Programari anterioare</h2>
-        <p className={classes.paragraph}>
-          These are the orders you have placed over time. Each order is associated with an payment
-          intent. As you order products, they will appear in your "purchased products" list.
-        </p>
-        <Button
-          className={classes.ordersButton}
-          href="/orders"
-          appearance="primary"
-          label="Vezi toate programarile"
-        />
-        <HR />
-        <Button href="/logout" appearance="secondary" label="Log out" />
-      </Gutter>
-    </Fragment>
+    <div>
+      <h5 className={classes.personalInfo}>Contul Meu</h5>
+      <AccountForm />
+    </div>
   )
 }
 
