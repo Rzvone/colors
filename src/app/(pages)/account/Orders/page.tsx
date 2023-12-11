@@ -70,7 +70,7 @@ export default async function Orders() {
                 </div>
                 <Button
                   appearance="default"
-                  label="View Order"
+                  label="Se Vede"
                   className={classes.button}
                   el="link"
                   href={`/orders/${order.id}`}
