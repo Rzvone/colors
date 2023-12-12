@@ -60,7 +60,6 @@ const Filters = ({ categories }: { categories: Category[]}) => {
           onRadioChange={handleSort}
           groupName="sort"
         />
-          
         </div>
       </div>
     </div>

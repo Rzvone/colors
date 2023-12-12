@@ -12,13 +12,15 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  background-color: white;
-  width: 100%;
+  background-color: #fff;
+  min-height: 120px;
+  border-bottom-left-radius: 10px;
 
   @include small-break {
     padding: calc(var(--base) / 2);
     gap: calc(var(--base) / 4);
   }
+  
 }
 
 .title {
@@ -73,12 +75,14 @@
   position: relative;
   min-height: 262px;
   background-color: var(--theme-elevation-200);
+  border-top-right-radius: 10px;
 }
 
 .image {
   object-fit: cover;
   aspect-ratio: 1/1;
   max-width: 100%;
+  border-top-right-radius: 10px;
 }
 
 .placeholder {
