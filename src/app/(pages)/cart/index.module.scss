@@ -3,6 +3,7 @@
 .container {
   margin-top: 50px;
   width: 100%;
+  color: var(--theme-text);
 
   @include small-break {
     margin-top: 30px;

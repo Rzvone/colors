@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: 1fr 45%;
   height: 100vh;
+  color: var(--theme-text);
 
   @include mid-break {
     grid-template-columns: 1fr;
@@ -11,10 +12,15 @@
     background-repeat: no-repeat;
     background-position: center;
     background-image: url('/assets/images/login.webp');
+    color: black;
   }
 
   p {
-    color: var(--color-gray-500);
+    color: var(--theme-text);
+
+    @include mid-break {
+      color: black;
+    }
   }
 }
 
@@ -30,6 +36,7 @@
     @include mid-break {
       font-size: 34px;
       margin-bottom: 8px;
+      color: black;
     }
   }
 

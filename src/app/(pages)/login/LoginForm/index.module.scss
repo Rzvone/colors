@@ -13,6 +13,10 @@
 .submit {
   width: 100%;
 
+  @include mid-break {
+    background-color: black;
+    color: white;
+  }
 }
 
 .message {
@@ -24,4 +28,14 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+}
+
+.create,
+.recover {
+  color: var(--theme-text);
+
+
+  @include mid-break {
+    color: black;
+  }
 }

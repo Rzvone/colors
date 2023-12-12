@@ -12,10 +12,15 @@
     background-repeat: no-repeat;
     background-position: center;
     background-image: url('/assets/images/createAcoount.webp');
+    color: black;
   }
 
   p {
     color: var(--color-gray-500);
+
+    @include mid-break {
+      color: black;
+    }
   }
 }
 

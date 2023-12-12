@@ -8,6 +8,7 @@
   opacity: 1;
   transition: opacity 100ms linear;
   visibility: visible;
+  color: var(--theme-text);
 
   > * {
     text-decoration: none;

@@ -16,8 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className={classes.account}>
           <div className={classes.nav}>
             <UserInfo />
-
-            <ul>
+            <ul className={classes.ul}>
               {profileNavItems.map(item => (
                 <li key={item.title}>
                   <Link href={item.url} className={classes.navItem}>

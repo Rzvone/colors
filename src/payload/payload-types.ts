@@ -477,6 +477,7 @@ export interface Settings {
   createdAt?: string;
 }
 export interface Header {
+  theme: string;
   id: string;
   navItems?: {
     link: {

@@ -43,7 +43,7 @@ export default async function Orders() {
 
   return (
     <div>
-      <h5>Servicile Mele</h5>
+      <h5 className={classes.title}>Servicile Mele</h5>
       {(!orders || !Array.isArray(orders) || orders?.length === 0) && (
         <p className={classes.noOrders}>You have no orders.</p>
       )}

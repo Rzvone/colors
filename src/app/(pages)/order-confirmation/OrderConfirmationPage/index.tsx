@@ -42,11 +42,17 @@ export const OrderConfirmationPage: React.FC<{}> = () => {
           <h3 className={classes.header3}>Multumim pentru suport!</h3>
           <p className={classes.paragraph}>{`Multumim pentru alegerea facuta!`}</p>
           <div className={classes.actions}>
-            <Button href={`/orders/${orderID}`} label="Vezi alegerea" appearance="primary" />
+            <Button
+              href={`/orders/${orderID}`}
+              label="Vezi alegerea"
+              appearance="primary"
+              className={classes.picks}
+            />
             <Button
               href={`${process.env.NEXT_PUBLIC_SERVER_URL}/orders`}
               label="Vezi toate alegerile"
               appearance="secondary"
+              className={classes.allPicks}
             />
           </div>
         </Fragment>

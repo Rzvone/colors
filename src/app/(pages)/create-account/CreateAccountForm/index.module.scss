@@ -12,6 +12,11 @@
 
 .submit {
   width: 100%;
+
+  @include mid-break {
+    background-color: black;
+    color: white;
+  }
 }
 
 .message {

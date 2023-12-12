@@ -48,7 +48,7 @@ export default async function Orders() {
 
   return (
     <Gutter className={classes.orders}>
-      <h1>Programari</h1>
+      <h1 className={classes.title}>Programari</h1>
       {(!orders || !Array.isArray(orders) || orders?.length === 0) && (
         <p className={classes.noOrders}>Prima vizita.</p>
       )}
