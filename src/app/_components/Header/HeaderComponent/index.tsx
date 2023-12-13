@@ -30,7 +30,7 @@ const HeaderComponent = ({ header }: { header: Header }) => {
     >
       <Gutter className={classes.wrap}>
         <Link href="/">
-          <Image src={logoSrc} alt="logo" width={170} height={50} />
+          <Image src='/logo-black.png' alt="logo" width={170} height={50} />
         </Link>
         <HeaderNav header={header} />
       </Gutter>
