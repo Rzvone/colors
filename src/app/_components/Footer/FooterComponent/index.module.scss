@@ -69,12 +69,13 @@
 
 .socialLinks {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
-.socialLinkItem {
-  width: 100%;
-}
+// .socialLinkItem {
+//   width: 100%;
+// }
 
 .socialIcon {
   width: 24px;
